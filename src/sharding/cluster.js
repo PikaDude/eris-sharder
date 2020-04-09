@@ -186,7 +186,7 @@ class Cluster {
 
         bot.on("shardDisconnect", (err, id) => {
             process.send({ name: "log", msg: `Shard ${id} disconnected!` });
-            if (err) process.send({ name: "error", msg: err });
+            if (err) process.send({ name: "error", msg: inspect(err) });
             let embed = {
                 title: "Shard Status Update",
                 description: `Shard ${id} disconnected!`
